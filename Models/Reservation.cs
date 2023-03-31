@@ -36,7 +36,7 @@ namespace Tennisplatzreservierung.Models
         {
             if (!reservation.CourtID.Equals(CourtID)) return false;
 
-            return reservation.StartTime < EndTime && reservation.EndTime > StartTime;
+            return reservation.StartTime <= EndTime && reservation.EndTime >= StartTime;
         }
 
         #endregion

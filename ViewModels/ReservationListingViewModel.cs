@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Tenniscourtreservation.Commands;
+using Tenniscourtreservation.Stores;
 using Tennisplatzreservierung.Models;
 
 namespace Tenniscourtreservation.ViewModels
@@ -17,9 +19,11 @@ namespace Tenniscourtreservation.ViewModels
 
         public ICommand MakeReservationCommand { get; }
 
-        public ReservationListingViewModel()
+        public ReservationListingViewModel(NavigationStore navigationStore, Func<MakeReservationViewModel> createMakeReservationViewModel)
         {
             _reservations  = new ObservableCollection<ReservationViewModel>();
+
+            MakeReservationCommand = new NavigateCommand(navigationStore, createMakeReservationViewModel);
 
             _reservations.Add(new ReservationViewModel(new Reservation(new CourtID(2,1), "Valo", DateTime.Now, DateTime.Now)));
             _reservations.Add(new ReservationViewModel(new Reservation(new CourtID(2, 2), "Eli", DateTime.Now, DateTime.Now)));

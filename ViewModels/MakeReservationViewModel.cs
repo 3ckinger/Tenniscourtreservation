@@ -4,11 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Tenniscourtreservation.Commands;
+using Tenniscourtreservation.Stores;
 using Tennisplatzreservierung.Models;
 
 namespace Tenniscourtreservation.ViewModels
 {
-    internal class MakeReservationViewModel : ViewModelBase
+    public class MakeReservationViewModel : ViewModelBase
     {
         #region properties
 
@@ -57,7 +59,7 @@ namespace Tenniscourtreservation.ViewModels
 
         }
 
-        private DateTime _startTime;
+        private DateTime _startTime = DateTime.Now;
         public DateTime StartTime
         {
             get
@@ -72,7 +74,7 @@ namespace Tenniscourtreservation.ViewModels
 
         }
 
-        private DateTime _endTime;
+        private DateTime _endTime = new DateTime(2023,DateTime.Now.Month + 1, 1);
         public DateTime EndTime
         {
             get
@@ -96,9 +98,10 @@ namespace Tenniscourtreservation.ViewModels
 
         #endregion
 
-        public MakeReservationViewModel()
+        public MakeReservationViewModel(Tenniscourt tenniscourt, NavigationStore navigationStore, Func<ReservationListingViewModel> createReservationListingViewModel)
         {
-            
+            SumitCommand = new MakeReservationCommand(this, tenniscourt);
+            CancelCommand = new NavigateCommand(navigationStore, createReservationListingViewModel);
         }
 
     }
