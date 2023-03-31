@@ -11,6 +11,6 @@
         FontSize="14"
         mc:Ignorable="d">
     <Grid MaxWidth="500" Margin="20 10">
-        <views:ReservationListingView />
+        <views:MakeReservationView />
     </Grid>
 </Window>

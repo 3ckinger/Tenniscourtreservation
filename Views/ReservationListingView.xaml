@@ -22,29 +22,29 @@
             </Grid.ColumnDefinitions>
 
             <TextBlock Grid.Column="0" Style="{StaticResource Header}" Text="Reservierungsliste" />
-            <Button Grid.Column="1" Margin="10 0 0 0" Content="Reservierung erstellen" />
+            <Button Grid.Column="1"
+                    Margin="10 0 0 0"
+                    Command="{Binding MakeReservationCommand}"
+                    Content="Reservierung erstellen" />
 
         </Grid>
 
-        <ListView Grid.Row="1" Margin="0 25 0 0">
-            <ListViewItem/>
-            <ListViewItem/>
-            <ListViewItem/>
+        <ListView Grid.Row="1" Margin="0 25 0 0" ItemsSource="{Binding Reservations}">
 
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
-                    <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                    <Setter Property="HorizontalAlignment" Value="Stretch" />
                 </Style>
             </ListView.ItemContainerStyle>
-            
+
             <ListView.View>
-                
+
                 <GridView>
 
                     <GridViewColumn Header="Platz">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock HorizontalAlignment="Center" Text="12" />
+                                <TextBlock HorizontalAlignment="Center" Text="{Binding CourtID}" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -52,7 +52,7 @@
                     <GridViewColumn Header="Spieler">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="12" />
+                                <TextBlock Text="{Binding Playername}" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -60,7 +60,7 @@
                     <GridViewColumn Header="Startzeit">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="12" />
+                                <TextBlock Text="{Binding StartTime}" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -68,7 +68,7 @@
                     <GridViewColumn Header="Endzeit">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="12" />
+                                <TextBlock Text="{Binding EndTime}" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
