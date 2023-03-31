@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using Tenniscourtreservation.Exeptions;
+using Tenniscourtreservation.ViewModels;
 using Tennisplatzreservierung.Models;
 
 namespace Tenniscourtreservation
@@ -17,29 +18,12 @@ namespace Tenniscourtreservation
     {
         protected override void OnStartup(StartupEventArgs e)
         {
-            Tenniscourt tenniscourt = new Tenniscourt("Goldegg");
-
-            try
+            MainWindow = new MainWindow()
             {
-                tenniscourt.MakeReservation(new Reservation(
-                courtID: new CourtID(1, 1),
-                playername: "hias",
-                startTime: new DateTime(2023, 1, 1),
-                endTime: new DateTime(2023, 2, 1)));
+                DataContext = new MainViewModel()
+            };
 
-                tenniscourt.MakeReservation(new Reservation(
-                    courtID: new CourtID(1, 2),
-                    playername: "hias",
-                    startTime: new DateTime(2023, 1, 1),
-                    endTime: new DateTime(2023, 2, 1)));
-            }
-            catch (ReservationConflictException ex)
-            {
-
-                
-            }
-
-            IEnumerable<Reservation> reservations = tenniscourt.GetAllReservations();
+            MainWindow.Show();
 
             base.OnStartup(e);
         }

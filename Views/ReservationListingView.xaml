@@ -44,7 +44,7 @@
                     <GridViewColumn Header="Platz">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock HorizontalAlignment="Center" Text="{Binding CourtID}" />
+                                <TextBlock Style="{StaticResource TableText}" Text="{Binding CourtID}" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -52,7 +52,7 @@
                     <GridViewColumn Header="Spieler">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Playername}" />
+                                <TextBlock Style="{StaticResource TableText}" Text="{Binding Playername}" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -60,7 +60,7 @@
                     <GridViewColumn Header="Startzeit">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding StartTime}" />
+                                <TextBlock Style="{StaticResource TableText}" Text="{Binding StartTime}" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -68,7 +68,7 @@
                     <GridViewColumn Header="Endzeit">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding EndTime}" />
+                                <TextBlock Style="{StaticResource TableText}" Text="{Binding EndTime}" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>

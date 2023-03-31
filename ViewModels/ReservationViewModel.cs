@@ -19,9 +19,8 @@ namespace Tenniscourtreservation.ViewModels
 
         public string CourtID => _reservation.CourtID.ToString();
         public string Playername => _reservation.Playername;
-        public DateTime StartTime => _reservation.StartTime;
-        public DateTime EndTime => _reservation.EndTime;
-        public TimeSpan Length => EndTime.Subtract(StartTime);
+        public string StartTime => _reservation.StartTime.ToString("g");
+        public string EndTime => _reservation.EndTime.ToString("g");
 
         #endregion
 
